@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "jsRules": {},
+  "rules": {
+    "no-parameter-reassignment": true,
+    "quotemark": [true, "single", "avoid-escape", "avoid-template"],
+    "member-ordering": [true, { "order": "fields-first" }],
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
+    }
+  },
+  "rulesDirectory": []
+}
