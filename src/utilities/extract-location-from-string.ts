@@ -32,6 +32,7 @@ const northAmericaOrEuropeLocations = [
   'europe or usa',
   'europe, east coast us',
   'europe / americas',
+  'north america, europe, spain',
 ];
 
 const americasLocations = [
