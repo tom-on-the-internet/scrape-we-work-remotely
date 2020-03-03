@@ -1,10 +1,11 @@
 const anywhereLocations = [
-  "Americas, Europe, Africa",
+  "americas, europe, africa",
   "all regions",
   "all",
   "any region",
   "any",
   "anywhere",
+  "anywhere (100% remote) only",
   "earth",
   "eastern europe and asia",
   "global",
@@ -42,6 +43,7 @@ const americasLocations = [
   "americas (north, south, and central)",
   "americas time zones",
   "americas",
+  "americas only",
   "gmt +- 4hrs",
   "must be willing to work within cst business day",
   "north america & south america",
@@ -121,21 +123,24 @@ const europeLocations = [
   "worldwide except us & canada"
 ];
 
+const asiaLocations = ["asia only"];
+
 const australiaLocations = ["australia", "australia only"];
 
 const locations: Array<{ name: string; listedAs: string[] }> = [
-  { name: "Anywhere", listedAs: anywhereLocations },
-  { name: "North America or Europe", listedAs: northAmericaOrEuropeLocations },
   { name: "Americas", listedAs: americasLocations },
-  { name: "North America", listedAs: northAmericaLocations },
-  { name: "South America", listedAs: southAmericaLocations },
+  { name: "Anywhere", listedAs: anywhereLocations },
+  { name: "Asia", listedAs: asiaLocations },
+  { name: "Australia", listedAs: australiaLocations },
   { name: "Europe", listedAs: europeLocations },
-  { name: "Australia", listedAs: australiaLocations }
+  { name: "North America or Europe", listedAs: northAmericaOrEuropeLocations },
+  { name: "North America", listedAs: northAmericaLocations },
+  { name: "South America", listedAs: southAmericaLocations }
 ];
 
 export default function extractLocationFromString(str?: string) {
   if (!str) {
-    return "Anywhere";
+    return "Uncertain Location";
   }
 
   const relatedLocation = locations.find(location => {
