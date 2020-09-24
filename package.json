@@ -10,11 +10,11 @@
   "license": "ISC",
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/cheerio": "^0.22.16",
-    "@types/node": "^12.12.29",
+    "@types/cheerio": "^0.22.22",
+    "@types/node": "^12.12.62",
     "nodemon": "^1.19.4",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.8.3"
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "axios": "^0.19.2",

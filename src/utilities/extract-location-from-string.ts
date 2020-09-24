@@ -18,7 +18,7 @@ const anywhereLocations = [
   "us,canada,australia",
   "virtual location",
   "world wide",
-  "worldwide"
+  "worldwide",
 ];
 
 const northAmericaOrEuropeLocations = [
@@ -35,7 +35,7 @@ const northAmericaOrEuropeLocations = [
   "north america, europe",
   "north america, europe, spain",
   "north america, uk",
-  "usa and europe"
+  "usa and europe",
 ];
 
 const americasLocations = [
@@ -61,7 +61,7 @@ const americasLocations = [
   "us (gmt-8 - gmt-4, prefer gmt-7)",
   "us timezones only",
   "usa time zones only",
-  "within 3 hours of cst"
+  "within 3 hours of cst",
 ];
 
 const northAmericaLocations = [
@@ -96,13 +96,13 @@ const northAmericaLocations = [
   "us",
   "usa only",
   "usa",
-  "utc+3 (eastern europe) and utc-7 (as far as san francisco) time zones"
+  "utc+3 (eastern europe) and utc-7 (as far as san francisco) time zones",
 ];
 
 const southAmericaLocations = [
   "latin america only",
   "latin america",
-  "south america"
+  "south america",
 ];
 
 const europeLocations = [
@@ -120,12 +120,14 @@ const europeLocations = [
   "uk or europe",
   "united kingdom",
   "utc-5 to utc+2",
-  "worldwide except us & canada"
+  "worldwide except us & canada",
 ];
 
 const asiaLocations = ["asia only"];
 
 const australiaLocations = ["australia", "australia only"];
+
+const invalidLocations = ["emea only", "full-stack"];
 
 const locations: Array<{ name: string; listedAs: string[] }> = [
   { name: "Americas", listedAs: americasLocations },
@@ -135,16 +137,16 @@ const locations: Array<{ name: string; listedAs: string[] }> = [
   { name: "Europe", listedAs: europeLocations },
   { name: "North America or Europe", listedAs: northAmericaOrEuropeLocations },
   { name: "North America", listedAs: northAmericaLocations },
-  { name: "South America", listedAs: southAmericaLocations }
+  { name: "South America", listedAs: southAmericaLocations },
 ];
 
 export default function extractLocationFromString(str?: string) {
-  if (!str) {
+  if (!str || invalidLocations.includes(str.toLowerCase())) {
     return "Uncertain Location";
   }
 
-  const relatedLocation = locations.find(location => {
-    const formattedList: string[] = location.listedAs.map(place =>
+  const relatedLocation = locations.find((location) => {
+    const formattedList: string[] = location.listedAs.map((place) =>
       place.trim().toLowerCase()
     );
 
