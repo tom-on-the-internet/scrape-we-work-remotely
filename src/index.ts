@@ -5,7 +5,7 @@ import { writeFileSync } from "fs";
 import {
   baseUrl,
   categoryUrl,
-  extractJobPostingUrlsFromJobListingHtml
+  extractJobPostingUrlsFromJobListingHtml,
 } from "./utilities/extract-job-posting-urls-from-job-listing-html";
 import extractLocationFromString from "./utilities/extract-location-from-string";
 import extractTechnologiesFromString from "./utilities/extract-technologies-from-string";
@@ -18,14 +18,14 @@ const main = async () => {
   );
 
   const responses = await Promise.all(
-    jobPostingUrls.map(url => Axios.get(url))
+    jobPostingUrls.map((url) => Axios.get(url))
   );
 
   const postingPages = responses.map(
     (postingsResponse: AxiosResponse) => postingsResponse.data
   );
 
-  const jobPostings = postingPages.map(postingPage => {
+  const jobPostings = postingPages.map((postingPage) => {
     const $ = cheerio.load(postingPage);
 
     const location = extractLocationFromString(
@@ -34,7 +34,7 @@ const main = async () => {
         .filter(
           (_item, index, array) => index > 1 && index === array.length - 1
         )
-        .map(item => $(item).text())[0]
+        .map((item) => $(item).text())[0]
     );
 
     const posting = $("#job-listing-show-container")!.html();

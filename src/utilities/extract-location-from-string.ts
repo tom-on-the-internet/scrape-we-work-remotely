@@ -127,7 +127,7 @@ const asiaLocations = ["asia only"];
 
 const australiaLocations = ["australia", "australia only"];
 
-const invalidLocations = ["emea only", "full-stack"];
+const invalidLocations = ["emea only", "full-stack", "front-end", "back-end"];
 
 const locations: Array<{ name: string; listedAs: string[] }> = [
   { name: "Americas", listedAs: americasLocations },
